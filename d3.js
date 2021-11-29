@@ -9,3 +9,7 @@ d3.select("body").selectAll("h2")
     return d < 20 ? "red" : "green";
   } )
   .attr("class","container")
+  /*the d return each individual data and the i is de index of the data*/
+  .attr("x", (d, i) => {
+   return i * 30
+})
