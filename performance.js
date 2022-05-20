@@ -9,11 +9,13 @@ const res02 = numeros.map((x) => x * 5);
 console.timeEnd('map()');
 
 console.time('reduce()');
-const res03 = numeros.reduce((acc, x) => x * 5);
+const res03 = numeros.reduce((x) => x * 5);
 console.timeEnd('reduce()');
 
 console.time('for()');
+const newArr = [];
 for (let i = 0; i < numeros.length; i++) {
-  numeros[i] * 5;
+  let num = numeros[i] * 5;
+  newArr.push(num);
 }
 console.timeEnd('for()');
