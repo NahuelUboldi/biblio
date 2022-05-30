@@ -1,37 +1,66 @@
-<<<<<<< HEAD
-const string = "string"
-const number = 5
-const bool = true
-const undefinedVar = undefined
-const symbol = Symbol()
-const bigInt = 7n
+// Given a sequence of integers as an array, determine whether it is possible to obtain a strictly increasing sequence by removing no more than one element from the array.
+// [1,3,2,1] -> false
+// [1, 2, 1, 2] -> false
+// [1, 2, 1, 2] -> false
 
-const nullVar = null
+// //[10,11,12,11,12] -> false
+// i i-1 => <
+// i i-2 => <=
+// i i+1 => < || undefined
+// i+1 i-1 => >=
 
-const object = {}
-const array = []
+// // [3, 5, 67, 98, 3, 99,2,100] -> false
+// remove i
+// i i-1 => <
+// i i-2 => <=
+// i i+1 => < || undefined
+// i+1 i-1 => >
 
-const func = function() {}
-func.__proto__.__proto__.__proto__
-string.__proto__.__proto__
-=======
-const numeros = Array(200000).fill(5);
+// // [1, 2, 2, 3, 4, 3, 6] -> true
+// remove i
+// i i-1 => <=
+// i i-2 => ><=
+// i i+1 => < || undefined
+// i+1 i-1 => >
 
-console.time('foreach()');
-const res01 = numeros.forEach((x) => x * 5);
-console.timeEnd('foreach()');
+// REMOVE I
+// // [10, 11, 12, 11, 13, 14] -> true
+// // [1, 2, 3, 4, 3, 6] -> true
+// // [3, 5, 67, 98, 3] -> true
+// remove i
+// i i-1 => <
+// i i-2 => <=
+// i i+1 => < || undefined
+// i+1 i-1 => >
 
-console.time('map()');
-const res02 = numeros.map((x) => x * 5);
-console.timeEnd('map()');
+// REMOVE I-1
+// // [1, 2, 3, 99, 4, 5] -> true
+// // [1,5,2,3,4,5] -> true
+// // [1,3,2] -> true
+// // [10, 1, 2, 3, 4, 5] -> true
+// remove i-1
+// i i-1 => <
+// i i-2 => > || undefined
+// i i+1 => <
+// i+1 i-1 => <
 
-console.time('reduce()');
-const res03 = numeros.reduce((acc, x) => x * 5);
-console.timeEnd('reduce()');
-
-console.time('for()');
-for (let i = 0; i < numeros.length; i++) {
-  numeros[i] * 5;
+function solution(sequence) {
+  let count = 0;
+  const s = sequence;
+  for (let i = 1; i < s.length; i++) {
+    if (s[i - 1] >= s[i]) {
+      count++;
+      if (count > 1) return false;
+      if (s[i - 2] >= s[i] && s[i - 1] >= s[i + 1]) return false;
+    }
+  }
+  return true;
 }
-console.timeEnd('for()');
->>>>>>> c599e6fabdde2935c6e3449af8d9f52b9d947f3b
+
+// console.log(solution([1, 3, 2, 1]), ' -> false');
+// console.log(solution([1, 5, 6, 3, 4, 5]), ' -> false');
+console.log(solution([3, 5, 67, 98, 3]), ' -> true');
+// console.log(solution([1, 2, 3, 4, 3, 6]), ' -> true');
+// console.log(solution([1, 2, 1, 2]), ' -> false');
+// console.log(solution([10, 1, 2, 3, 4, 5]), ' -> true');
+// console.log(solution([1, 2, 1, 2]), ' -> false');
