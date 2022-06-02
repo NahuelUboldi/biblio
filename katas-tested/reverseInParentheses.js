@@ -52,10 +52,10 @@ function solution(inputString) {
       tempS += inputString[i];
     }
   }
-  console.log({ finalStringArr });
-  return inputString;
+  return str
 }
 
+<<<<<<< HEAD
 solution('foo(bar(baz))blim');
 
 // Write a function that reverses characters in (possibly nested) parentheses in the input string.
@@ -99,4 +99,6 @@ function solution2(inputString, completeString = '') {
 solution2('(no(hola))');
 // solution('foo(bar(baz))blim');
 
+=======
+>>>>>>> b5f8eb0a7579711787b5db90c263ea21cc6063db
 module.exports = solution;
