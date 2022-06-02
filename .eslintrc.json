@@ -1,0 +1,10 @@
+{
+  "extends": ["eslint:recommended", "airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "prettier/prettier": "error",
+    "no-console": "off",
+    "func-names": "off"
+  }
+}
