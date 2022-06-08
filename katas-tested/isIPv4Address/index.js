@@ -3,6 +3,16 @@
 // Given a string, find out if it satisfies the IPv4 address naming rules.
 
 function solution(inputString) {
-  console.log({inputString});
+  const ipDir = inputString.split('.');
+  if (ipDir.length !== 4) return false;
+  for (let i = 0; i < ipDir.length; i += 1) {
+    const num = Number(ipDir[i]);
+    console.log(num);
+    if ((!num && num !== 0) || num > 255 || num < 0) {
+      console.log(num);
+      return false;
+    }
+  }
+  return true;
 }
 module.exports = solution;
