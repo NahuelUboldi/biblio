@@ -11,11 +11,18 @@ function solution(arr) {
   for (let row = 1; row < rowLength - 1; row += 1) {
     const rowArr = [];
     for (let col = 1; col < colLength - 1; col += 1) {
-      const rowCalc = Math.floor((
-      arr[row - 1][col -1] + arr[row - 1][col] + arr[row - 1][col + 1] +
-      arr[row][col -1] + arr[row][col] + arr[row][col + 1] +
-      arr[row + 1][col -1] + arr[row + 1][col] + arr[row + 1][col + 1]
-      ) / 9);
+      const rowCalc = Math.floor(
+        (arr[row - 1][col - 1] +
+          arr[row - 1][col] +
+          arr[row - 1][col + 1] +
+          arr[row][col - 1] +
+          arr[row][col] +
+          arr[row][col + 1] +
+          arr[row + 1][col - 1] +
+          arr[row + 1][col] +
+          arr[row + 1][col + 1]) /
+          9
+      );
       rowArr.push(rowCalc);
     }
     res.push(rowArr);

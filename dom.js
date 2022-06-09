@@ -2,7 +2,7 @@
 const body = document.body;
 body.append('Hello World'); //you can appen
 body.appendChild();
-body.prepend("child") //append a child in the first position
+body.prepend('child'); //append a child in the first position
 const div = document.createElement('div');
 div.innerText = 'Hello World';
 div.textContent = 'Hello World 2';
