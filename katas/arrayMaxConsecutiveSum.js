@@ -1,11 +1,14 @@
 // Given array of integers, find the maximal possible sum of some of its k consecutive elements.
-
-const sumAll = (a) => a.reduce((acc, n) => acc + n);
 function solution(inputArray, k) {
   let biggerSum = 0;
-  for (let i = 0; i < inputArray.length - k + 1; i += 1) {
-    const tempSum = sumAll(inputArray.slice(i, k + i));
-    tempSum > biggerSum ? (biggerSum = tempSum) : null;
+  const length = inputArray.length - k + 1;
+  for (let i = 0; i < k; i += 1) {
+    biggerSum += inputArray[i];
+  }
+  let tempSum = biggerSum;
+  for (let i = 1; i < length; i += 1) {
+    tempSum = tempSum - inputArray[i - 1] + inputArray[i + k - 1];
+    if (tempSum > biggerSum) biggerSum = tempSum;
   }
   return biggerSum;
 }
