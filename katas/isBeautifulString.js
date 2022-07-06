@@ -4,7 +4,7 @@ function solution(s) {
     .sort()
     .forEach((l) => setS.add(l));
   if ([...setS][0] !== 'a') return false;
-  for (let i = 1; i < setS.size; i++) {
+  for (let i = 1; i < setS.size; i += 1) {
     const l = [...setS][i];
     const prevL = [...setS][i - 1];
     if (l.charCodeAt(0))
